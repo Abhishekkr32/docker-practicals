@@ -1,0 +1,12 @@
+docker run -it -e COLLEGE=CSE --name myubuntu ubuntu /bin/bash
+echo $COLLEGE
+mkdir /data
+echo "Hello Docker" > /data/test.txt
+exit
+docker start myubuntu
+docker exec -it myubuntu /bin/bash
+docker cp myubuntu:/data/test.txt C:\Users\HP\Desktop\
+docker cp C:\Users\HP\Desktop\test.txt myubuntu:/data/sample.txt
+docker exec -it myubuntu ls /data
+docker exec -it myubuntu cat /data/sample.txt
+docker stop myubuntu
